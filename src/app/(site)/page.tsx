@@ -1,7 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { AboutTeaser } from "@/components/sections/AboutTeaser";
 import { MembersTeaser } from "@/components/sections/MembersTeaser";
-import { GroupPhoto } from "@/components/sections/GroupPhoto";
 import { MusicTeaser } from "@/components/sections/MusicTeaser";
 import { EventsTeaser } from "@/components/sections/EventsTeaser";
 import { NewsTeaser } from "@/components/sections/NewsTeaser";
@@ -9,18 +8,16 @@ import {
   getHero,
   getAbout,
   getMembers,
-  getGroupPhoto,
   getReleases,
   getEvents,
   getPublishedNews,
 } from "@/lib/data";
 
 export default async function HomePage() {
-  const [hero, about, members, groupPhoto, releases, events, news] = await Promise.all([
+  const [hero, about, members, releases, events, news] = await Promise.all([
     getHero(),
     getAbout(),
     getMembers(),
-    getGroupPhoto(),
     getReleases(),
     getEvents(),
     getPublishedNews(),
@@ -60,7 +57,6 @@ export default async function HomePage() {
         establishedAD={about.establishedAD}
       />
       <MembersTeaser members={members} />
-      <GroupPhoto imageUrl={groupPhoto.imageUrl} caption={groupPhoto.caption} />
       <MusicTeaser releases={releases} />
       <EventsTeaser events={events} />
       <NewsTeaser posts={news} />
