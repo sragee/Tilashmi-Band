@@ -11,10 +11,14 @@ export function Particles({ count = 60 }: { count?: number }) {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) return;
+
     let width = (canvas.width = canvas.offsetWidth);
     let height = (canvas.height = canvas.offsetHeight);
+    const effectiveCount = width < 640 ? Math.round(count * 0.5) : count;
 
-    const particles = Array.from({ length: count }, () => ({
+    const particles = Array.from({ length: effectiveCount }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
       r: Math.random() * 1.4 + 0.3,
@@ -27,6 +31,10 @@ export function Particles({ count = 60 }: { count?: number }) {
 
     let raf: number;
     const render = () => {
+      if (document.hidden) {
+        raf = requestAnimationFrame(render);
+        return;
+      }
       ctx.clearRect(0, 0, width, height);
       for (const p of particles) {
         p.y -= p.speed;

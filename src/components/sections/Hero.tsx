@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { PlayCircle, CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { AmbientGlow } from "@/components/ui/AmbientGlow";
@@ -35,11 +36,13 @@ export function Hero({
             playsInline
           />
         ) : backgroundImageUrl ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             src={backgroundImageUrl}
             alt="TILASHMI band"
-            className="h-full w-full object-cover"
+            fill
+            sizes="100vw"
+            priority
+            className="object-cover"
             style={{ opacity: mediaOpacity }}
           />
         ) : (
@@ -68,8 +71,14 @@ export function Hero({
           aria-label={heading}
           className="animate-float w-[78vw] max-w-[240px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px]"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.png" alt="" className="h-auto w-full object-contain" />
+          <Image
+            src="/logo.png"
+            alt=""
+            width={500}
+            height={161}
+            priority
+            className="h-auto w-full object-contain"
+          />
         </motion.h1>
 
         <motion.p
@@ -102,7 +111,7 @@ export function Hero({
         transition={{ delay: 1.2, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-black/40">Scroll</span>
+        <span className="text-[10px] uppercase tracking-[0.3em] text-black/60">Scroll</span>
         <span className="h-8 w-px bg-gradient-to-b from-black/40 to-transparent" />
       </motion.div>
     </section>

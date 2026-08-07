@@ -16,10 +16,10 @@ export function OpacitySlider({
   return (
     <div>
       <div className="mb-2 flex items-center justify-between">
-        <label htmlFor={name} className="block text-xs uppercase tracking-widest text-black/45">
+        <label htmlFor={name} className="block text-xs uppercase tracking-widest text-black/60">
           {label}
         </label>
-        <span className="text-xs text-black/50">{value}%</span>
+        <span className="text-xs text-black/60">{value}%</span>
       </div>
       <input
         id={name}
@@ -32,7 +32,7 @@ export function OpacitySlider({
         onChange={(e) => setValue(Number(e.target.value))}
         className="w-full accent-black"
       />
-      <p className="mt-1 text-xs text-black/35">
+      <p className="mt-1 text-xs text-black/60">
         Controls how visible the banner photo is behind the logo. Lower = more subtle.
       </p>
     </div>

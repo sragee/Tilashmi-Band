@@ -36,7 +36,7 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="relative flex min-h-screen items-center justify-center bg-background px-6">
+    <div className="relative flex min-h-dvh items-center justify-center bg-background px-6 py-12">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="aura w-[500px] h-[500px] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 animate-pulse-glow" />
       </div>
@@ -51,7 +51,7 @@ export default function AdminLoginPage() {
 
         <form onSubmit={onSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+            <label htmlFor="email" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
               Email
             </label>
             <input
@@ -59,12 +59,14 @@ export default function AdminLoginPage() {
               name="email"
               type="email"
               required
-              className="w-full rounded-xl border border-black/12 bg-black/[0.02] px-4 py-3 text-sm text-black outline-none focus:border-black/30"
+              autoComplete="username"
+              inputMode="email"
+              className="w-full rounded-xl border border-black/12 bg-black/[0.02] px-4 py-3 text-base text-black outline-none focus:border-black/30"
               placeholder="admin@tilashmi.com"
             />
           </div>
           <div>
-            <label htmlFor="password" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+            <label htmlFor="password" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
               Password
             </label>
             <input
@@ -72,7 +74,8 @@ export default function AdminLoginPage() {
               name="password"
               type="password"
               required
-              className="w-full rounded-xl border border-black/12 bg-black/[0.02] px-4 py-3 text-sm text-black outline-none focus:border-black/30"
+              autoComplete="current-password"
+              className="w-full rounded-xl border border-black/12 bg-black/[0.02] px-4 py-3 text-base text-black outline-none focus:border-black/30"
               placeholder="••••••••"
             />
           </div>

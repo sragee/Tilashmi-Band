@@ -13,7 +13,7 @@ export function AboutTeaser({
   establishedAD: string;
 }) {
   return (
-    <Section className="relative">
+    <Section className="relative overflow-hidden">
       <div className="aura w-[400px] h-[400px] -left-40 top-0" />
       <div className="grid gap-12 md:grid-cols-2 md:items-center relative">
         <Reveal>
@@ -35,7 +35,7 @@ export function AboutTeaser({
           <div className="glass rounded-3xl p-8 md:p-10 relative overflow-hidden">
             <div className="aura-accent w-[240px] h-[240px] -top-20 -right-20" />
             <Sparkles className="text-accent mb-6" size={28} />
-            <p className="text-sm uppercase tracking-[0.3em] text-black/40 mb-2">Established</p>
+            <p className="text-sm uppercase tracking-[0.3em] text-black/60 mb-2">Established</p>
             <p className="font-display text-4xl md:text-5xl text-black mb-1">{establishedBS}</p>
             <p className="text-sm text-muted">({establishedAD})</p>
             <div className="mt-8 grid grid-cols-3 gap-4 border-t border-black/10 pt-6">

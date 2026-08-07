@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Play, Music } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SpotifyIcon, YoutubeIcon, AppleMusicIcon } from "@/components/ui/SocialIcons";
@@ -27,11 +28,12 @@ export function ReleaseCard({ release, delay = 0 }: { release: Release; delay?: 
       <div className="group relative overflow-hidden rounded-3xl glass">
         <div className="relative aspect-square overflow-hidden bg-surface-2">
           {release.coverImageUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={release.coverImageUrl}
               alt={release.title}
-              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+              className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle,_#1a1a1a,_#000)]">
@@ -58,22 +60,22 @@ export function ReleaseCard({ release, delay = 0 }: { release: Release; delay?: 
           )}
         </div>
         <div className="p-5">
-          <p className="text-[11px] uppercase tracking-[0.25em] text-black/40">{release.type}</p>
+          <p className="text-[11px] uppercase tracking-[0.25em] text-black/60">{release.type}</p>
           <h3 className="mt-1 font-display text-lg text-black truncate">{release.title}</h3>
           <p className="mt-1 text-xs text-muted">{dateLabel}</p>
           <div className="mt-4 flex items-center gap-3">
             {release.spotifyUrl && (
-              <a href={release.spotifyUrl} target="_blank" rel="noreferrer" className="text-black/45 hover:text-black" aria-label="Listen on Spotify">
+              <a href={release.spotifyUrl} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black" aria-label="Listen on Spotify">
                 <SpotifyIcon size={16} />
               </a>
             )}
             {release.youtubeUrl && (
-              <a href={release.youtubeUrl} target="_blank" rel="noreferrer" className="text-black/45 hover:text-black" aria-label="Watch on YouTube">
+              <a href={release.youtubeUrl} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black" aria-label="Watch on YouTube">
                 <YoutubeIcon size={16} />
               </a>
             )}
             {release.appleMusicUrl && (
-              <a href={release.appleMusicUrl} target="_blank" rel="noreferrer" className="text-black/45 hover:text-black" aria-label="Listen on Apple Music">
+              <a href={release.appleMusicUrl} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black" aria-label="Listen on Apple Music">
                 <AppleMusicIcon size={16} />
               </a>
             )}

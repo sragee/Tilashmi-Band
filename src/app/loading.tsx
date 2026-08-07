@@ -6,7 +6,7 @@ export default function Loading() {
         <span className="absolute inset-2 rounded-full border border-black/20" />
         <span className="font-display text-xl tracking-widest text-black">T</span>
       </div>
-      <p className="mt-6 text-xs uppercase tracking-[0.4em] text-black/40">Tilashmi</p>
+      <p className="mt-6 text-xs uppercase tracking-[0.4em] text-black/60">Tilashmi</p>
     </div>
   );
 }

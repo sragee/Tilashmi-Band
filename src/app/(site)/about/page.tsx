@@ -23,7 +23,7 @@ export default async function AboutPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-40 pb-24">
+      <section className="relative overflow-hidden pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-24">
         <AmbientGlow />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Eyebrow>Our Story</Eyebrow>
@@ -43,7 +43,7 @@ export default async function AboutPage() {
           <p className="font-display text-2xl md:text-3xl leading-relaxed text-black max-w-3xl mx-auto">
             {about.meaning}
           </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-[0.25em] text-black/45">
+          <div className="mt-10 flex flex-wrap justify-center gap-3 text-xs uppercase tracking-[0.25em] text-black/60">
             {["Divine Power", "Spiritual Energy", "Brightness", "Light", "Positivity", "Hope", "Inner Strength"].map((w) => (
               <span key={w} className="rounded-full border border-black/10 px-4 py-2">
                 {w}

@@ -38,7 +38,7 @@ export function ImageUpload({
 
   return (
     <div>
-      <label className="mb-2 block text-xs uppercase tracking-widest text-black/45">{label}</label>
+      <label className="mb-2 block text-xs uppercase tracking-widest text-black/60">{label}</label>
       <input type="hidden" name={name} value={url} />
       <div className="flex items-center gap-4">
         <div className="relative flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-xl border border-black/12 bg-black/[0.02]">
@@ -66,7 +66,7 @@ export function ImageUpload({
             <button
               type="button"
               onClick={() => setUrl("")}
-              className="inline-flex items-center gap-1 text-xs text-black/40 hover:text-red-400"
+              className="inline-flex items-center gap-1 text-xs text-black/60 hover:text-red-400"
             >
               <X size={12} /> Remove
             </button>

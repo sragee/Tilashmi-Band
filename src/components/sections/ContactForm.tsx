@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 import { Send, Loader2, CheckCircle2 } from "lucide-react";
 
 const inputClass =
-  "w-full rounded-xl border border-black/12 bg-black/[0.02] px-4 py-3 text-sm text-black placeholder:text-black/30 outline-none transition-colors focus:border-black/30 focus:bg-black/[0.04]";
+  "w-full rounded-xl border border-black/12 bg-black/[0.02] px-4 py-3 text-base text-black placeholder:text-black/30 outline-none transition-colors focus:border-black/30 focus:bg-black/[0.04]";
 
 export function ContactForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -51,34 +51,58 @@ export function ContactForm() {
     <form onSubmit={onSubmit} className="rounded-3xl glass p-8 md:p-10 space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+          <label htmlFor="name" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
             Name
           </label>
-          <input id="name" name="name" required className={inputClass} placeholder="Your name" />
+          <input
+            id="name"
+            name="name"
+            required
+            autoComplete="name"
+            className={inputClass}
+            placeholder="Your name"
+          />
         </div>
         <div>
-          <label htmlFor="email" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+          <label htmlFor="email" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
             Email
           </label>
-          <input id="email" name="email" type="email" required className={inputClass} placeholder="you@email.com" />
+          <input
+            id="email"
+            name="email"
+            type="email"
+            required
+            autoComplete="email"
+            inputMode="email"
+            className={inputClass}
+            placeholder="you@email.com"
+          />
         </div>
       </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+          <label htmlFor="phone" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
             Phone
           </label>
-          <input id="phone" name="phone" className={inputClass} placeholder="Optional" />
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            className={inputClass}
+            placeholder="Optional"
+          />
         </div>
         <div>
-          <label htmlFor="subject" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+          <label htmlFor="subject" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
             Subject
           </label>
           <input id="subject" name="subject" className={inputClass} placeholder="Booking, collaboration..." />
         </div>
       </div>
       <div>
-        <label htmlFor="message" className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+        <label htmlFor="message" className="mb-2 block text-xs uppercase tracking-widest text-black/60">
           Message
         </label>
         <textarea

@@ -39,7 +39,7 @@ export default async function AdminGalleryPage() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={img.imageUrl} alt={img.caption || ""} className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center gap-2 p-3 text-center">
-                <span className="text-[10px] uppercase tracking-widest text-black/50">{img.category}</span>
+                <span className="text-[10px] uppercase tracking-widest text-black/60">{img.category}</span>
                 <form action={deleteGalleryImage}>
                   <input type="hidden" name="id" value={img.id} />
                   <DeleteButton confirmText="Remove this image?" />

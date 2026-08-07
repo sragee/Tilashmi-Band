@@ -23,7 +23,7 @@ export default async function MusicPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-40 pb-20">
+      <section className="relative overflow-hidden pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20">
         <AmbientGlow />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Eyebrow>Sound of Light</Eyebrow>

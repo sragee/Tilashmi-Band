@@ -47,7 +47,7 @@ export function Footer({
         </div>
 
         <div>
-          <h3 className="text-xs uppercase tracking-[0.3em] text-black/45 mb-5">Quick Links</h3>
+          <h3 className="text-xs uppercase tracking-[0.3em] text-black/60 mb-5">Quick Links</h3>
           <ul className="grid grid-cols-2 gap-x-6 gap-y-3">
             {quickLinks.map((l) => (
               <li key={l.href}>
@@ -60,7 +60,7 @@ export function Footer({
         </div>
 
         <div>
-          <h3 className="text-xs uppercase tracking-[0.3em] text-black/45 mb-5">Get in Touch</h3>
+          <h3 className="text-xs uppercase tracking-[0.3em] text-black/60 mb-5">Get in Touch</h3>
           <ul className="space-y-3 text-sm text-muted">
             <li className="flex items-center gap-2">
               <Mail size={15} /> <a href={`mailto:${contactEmail}`} className="hover:text-black">{contactEmail}</a>
@@ -71,22 +71,22 @@ export function Footer({
           </ul>
           <div className="flex items-center gap-4 mt-6">
             {socials.instagramUrl && (
-              <a href={socials.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-black/50 hover:text-black transition-colors">
+              <a href={socials.instagramUrl} target="_blank" rel="noreferrer" aria-label="Instagram" className="text-black/60 hover:text-black transition-colors">
                 <InstagramIcon size={19} />
               </a>
             )}
             {socials.facebookUrl && (
-              <a href={socials.facebookUrl} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-black/50 hover:text-black transition-colors">
+              <a href={socials.facebookUrl} target="_blank" rel="noreferrer" aria-label="Facebook" className="text-black/60 hover:text-black transition-colors">
                 <FacebookIcon size={19} />
               </a>
             )}
             {socials.youtubeUrl && (
-              <a href={socials.youtubeUrl} target="_blank" rel="noreferrer" aria-label="YouTube" className="text-black/50 hover:text-black transition-colors">
+              <a href={socials.youtubeUrl} target="_blank" rel="noreferrer" aria-label="YouTube" className="text-black/60 hover:text-black transition-colors">
                 <YoutubeIcon size={19} />
               </a>
             )}
             {socials.spotifyUrl && (
-              <a href={socials.spotifyUrl} target="_blank" rel="noreferrer" aria-label="Spotify" className="text-black/50 hover:text-black transition-colors">
+              <a href={socials.spotifyUrl} target="_blank" rel="noreferrer" aria-label="Spotify" className="text-black/60 hover:text-black transition-colors">
                 <SpotifyIcon size={19} />
               </a>
             )}
@@ -95,7 +95,7 @@ export function Footer({
       </div>
 
       <div className="relative border-t border-black/8 py-6">
-        <p className="text-center text-xs text-black/35 tracking-wide">{footerText}</p>
+        <p className="text-center text-xs text-black/60 tracking-wide">{footerText}</p>
       </div>
     </footer>
   );

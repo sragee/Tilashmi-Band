@@ -22,7 +22,7 @@ export default async function AdminHeroPage() {
         />
         <OpacitySlider name="backgroundOpacity" defaultValue={hero.backgroundOpacity} />
         <div>
-          <label className="mb-2 block text-xs uppercase tracking-widest text-black/45">
+          <label className="mb-2 block text-xs uppercase tracking-widest text-black/60">
             Background Video URL (optional, overrides image)
           </label>
           <input

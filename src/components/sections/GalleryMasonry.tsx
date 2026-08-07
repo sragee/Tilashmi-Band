@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -34,6 +34,17 @@ export function GalleryMasonry({ images }: { images: GalleryImage[] }) {
   const showNext = () =>
     setActiveIndex((i) => (i === null ? null : (i + 1) % filtered.length));
 
+  useEffect(() => {
+    if (activeIndex === null) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activeIndex, filtered.length]);
+
   return (
     <div>
       <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
@@ -41,7 +52,8 @@ export function GalleryMasonry({ images }: { images: GalleryImage[] }) {
           <button
             key={c.value}
             onClick={() => setFilter(c.value)}
-            className={`rounded-full px-5 py-2.5 text-xs uppercase tracking-widest transition-colors duration-300 ${
+            aria-pressed={filter === c.value}
+            className={`min-h-11 rounded-full px-5 py-2.5 text-xs uppercase tracking-widest transition-colors duration-300 ${
               filter === c.value
                 ? "bg-black text-white"
                 : "border border-black/15 text-black/55 hover:text-black hover:border-black/30"
@@ -80,53 +92,58 @@ export function GalleryMasonry({ images }: { images: GalleryImage[] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[90] flex items-center justify-center bg-black/92 backdrop-blur-md p-4"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Gallery image viewer"
+            className="fixed inset-0 z-[90] flex items-center justify-center bg-black/92 backdrop-blur-md p-4 safe-top safe-bottom"
             onClick={closeLightbox}
           >
             <button
               aria-label="Close"
               onClick={closeLightbox}
-              className="absolute top-6 right-6 text-white/70 hover:text-white"
+              className="absolute top-4 right-4 sm:top-6 sm:right-6 flex h-11 w-11 items-center justify-center text-white/70 hover:text-white"
             >
-              <X size={28} />
+              <X size={26} />
             </button>
             <button
-              aria-label="Previous"
+              aria-label="Previous image"
+              disabled={filtered.length < 2}
               onClick={(e) => {
                 e.stopPropagation();
                 showPrev();
               }}
-              className="absolute left-4 md:left-8 text-white/60 hover:text-white"
+              className="absolute left-1 sm:left-4 md:left-8 flex h-12 w-12 items-center justify-center text-white/60 hover:text-white disabled:opacity-0"
             >
-              <ChevronLeft size={32} />
+              <ChevronLeft size={30} />
             </button>
             <motion.div
               initial={{ scale: 0.94, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
               transition={{ duration: 0.25 }}
-              className="max-w-4xl max-h-[85vh] flex flex-col items-center"
+              className="max-w-4xl max-h-[85dvh] flex flex-col items-center px-10 sm:px-0"
               onClick={(e) => e.stopPropagation()}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={filtered[activeIndex].imageUrl}
                 alt={filtered[activeIndex].caption || "TILASHMI gallery photo"}
-                className="max-h-[75vh] w-auto rounded-xl object-contain"
+                className="max-h-[70dvh] w-auto rounded-xl object-contain"
               />
               {filtered[activeIndex].caption && (
-                <p className="mt-4 text-sm text-white/60">{filtered[activeIndex].caption}</p>
+                <p className="mt-4 text-sm text-white/60 text-center">{filtered[activeIndex].caption}</p>
               )}
             </motion.div>
             <button
-              aria-label="Next"
+              aria-label="Next image"
+              disabled={filtered.length < 2}
               onClick={(e) => {
                 e.stopPropagation();
                 showNext();
               }}
-              className="absolute right-4 md:right-8 text-white/60 hover:text-white"
+              className="absolute right-1 sm:right-4 md:right-8 flex h-12 w-12 items-center justify-center text-white/60 hover:text-white disabled:opacity-0"
             >
-              <ChevronRight size={32} />
+              <ChevronRight size={30} />
             </button>
           </motion.div>
         )}

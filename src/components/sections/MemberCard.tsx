@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from "@/components/ui/SocialIcons";
 
@@ -19,11 +20,12 @@ export function MemberCard({ member, delay = 0 }: { member: Member; delay?: numb
       <div className="group relative overflow-hidden rounded-3xl glass">
         <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">
           {member.photoUrl ? (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <Image
               src={member.photoUrl}
               alt={member.name}
-              className="h-full w-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
+              fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              className="object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center">
@@ -42,17 +44,17 @@ export function MemberCard({ member, delay = 0 }: { member: Member; delay?: numb
           <p className="text-sm text-muted leading-relaxed line-clamp-3">{member.bio}</p>
           <div className="mt-4 flex items-center gap-4">
             {member.instagram && (
-              <a href={member.instagram} target="_blank" rel="noreferrer" className="text-black/45 hover:text-black transition-colors" aria-label={`${member.name} on Instagram`}>
+              <a href={member.instagram} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black transition-colors" aria-label={`${member.name} on Instagram`}>
                 <InstagramIcon size={17} />
               </a>
             )}
             {member.facebook && (
-              <a href={member.facebook} target="_blank" rel="noreferrer" className="text-black/45 hover:text-black transition-colors" aria-label={`${member.name} on Facebook`}>
+              <a href={member.facebook} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black transition-colors" aria-label={`${member.name} on Facebook`}>
                 <FacebookIcon size={17} />
               </a>
             )}
             {member.youtube && (
-              <a href={member.youtube} target="_blank" rel="noreferrer" className="text-black/45 hover:text-black transition-colors" aria-label={`${member.name} on YouTube`}>
+              <a href={member.youtube} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black transition-colors" aria-label={`${member.name} on YouTube`}>
                 <YoutubeIcon size={17} />
               </a>
             )}

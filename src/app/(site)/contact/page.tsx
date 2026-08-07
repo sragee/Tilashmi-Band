@@ -17,7 +17,7 @@ export default async function ContactPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden pt-40 pb-20">
+      <section className="relative overflow-hidden pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-20">
         <AmbientGlow />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <Eyebrow>Let&apos;s Connect</Eyebrow>
@@ -42,7 +42,7 @@ export default async function ContactPage() {
                 <Mail size={19} />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-widest text-black/40">Email</p>
+                <p className="text-xs uppercase tracking-widest text-black/60">Email</p>
                 <p className="text-sm text-black mt-0.5">{settings.contactEmail}</p>
               </div>
             </a>
@@ -57,7 +57,7 @@ export default async function ContactPage() {
                 <WhatsappIcon size={19} />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-widest text-black/40">WhatsApp</p>
+                <p className="text-xs uppercase tracking-widest text-black/60">WhatsApp</p>
                 <p className="text-sm text-black mt-0.5">{settings.contactWhatsapp}</p>
               </div>
             </a>
@@ -70,7 +70,7 @@ export default async function ContactPage() {
                 <Phone size={19} />
               </span>
               <div>
-                <p className="text-xs uppercase tracking-widest text-black/40">Call</p>
+                <p className="text-xs uppercase tracking-widest text-black/60">Call</p>
                 <p className="text-sm text-black mt-0.5">{settings.contactPhone}</p>
               </div>
             </a>
