@@ -1,0 +1,145 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+model SiteSettings {
+  id             String   @id @default("singleton")
+  logoUrl        String?
+  faviconUrl     String?
+  siteTitle      String   @default("TILASHMI | Official Band Website")
+  siteDescription String  @default("TILASHMI — Where Divine Energy Meets Modern Sound. Nepali alternative rock, pop & fusion rock band, est. 2081 B.S. (2024 A.D.).")
+  facebookUrl    String?
+  instagramUrl   String?
+  youtubeUrl     String?
+  spotifyUrl     String?
+  tiktokUrl      String?
+  appleMusicUrl  String?
+  contactEmail   String   @default("tilashmiband2023@gmail.com")
+  contactPhone   String   @default("+977 9804053754")
+  contactWhatsapp String  @default("+977 9804053754")
+  footerText     String   @default("TILASHMI © All Rights Reserved.")
+  updatedAt      DateTime @updatedAt
+}
+
+model HeroContent {
+  id            String   @id @default("singleton")
+  heading       String   @default("TILASHMI")
+  subtitle      String   @default("Where Divine Energy Meets Modern Sound")
+  backgroundImageUrl String?
+  backgroundOpacity Int      @default(30)
+  backgroundVideoUrl String?
+  listenNowUrl  String?
+  updatedAt     DateTime @updatedAt
+}
+
+model AboutContent {
+  id              String   @id @default("singleton")
+  intro           String   @default("TILASHMI is a Nepali band born from light, energy, and sound.")
+  vision          String   @default("")
+  passion         String   @default("")
+  journey         String   @default("")
+  meaning         String   @default("")
+  positiveMessage String   @default("")
+  establishedBS   String   @default("2081 B.S.")
+  establishedAD   String   @default("2024 A.D.")
+  updatedAt       DateTime @updatedAt
+}
+
+model TimelineEvent {
+  id        String   @id @default(cuid())
+  year      String
+  title     String
+  description String
+  order     Int      @default(0)
+}
+
+model Member {
+  id          String   @id @default(cuid())
+  name        String
+  role        String
+  bio         String
+  photoUrl    String?
+  instagram   String?
+  facebook    String?
+  youtube     String?
+  tiktok      String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model GroupPhoto {
+  id        String   @id @default("singleton")
+  imageUrl  String?
+  caption   String?
+  updatedAt DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        String   @id @default(cuid())
+  imageUrl  String
+  category  String   @default("concerts")
+  caption   String?
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Release {
+  id            String   @id @default(cuid())
+  title         String
+  type          String   @default("single")
+  coverImageUrl String?
+  releaseDate   DateTime
+  spotifyUrl    String?
+  youtubeUrl    String?
+  appleMusicUrl String?
+  status        String   @default("released")
+  order         Int      @default(0)
+  createdAt     DateTime @default(now())
+}
+
+model Event {
+  id          String   @id @default(cuid())
+  title       String
+  venue       String
+  city        String
+  date        DateTime
+  description String?
+  ticketUrl   String?
+  posterUrl   String?
+  createdAt   DateTime @default(now())
+}
+
+model NewsPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String
+  imageUrl    String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  subject   String?
+  message   String
+  createdAt DateTime @default(now())
+  read      Boolean  @default(false)
+}
