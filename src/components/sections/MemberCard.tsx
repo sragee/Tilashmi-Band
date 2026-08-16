@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { Reveal } from "@/components/ui/Reveal";
 import { InstagramIcon, FacebookIcon, YoutubeIcon } from "@/components/ui/SocialIcons";
 
@@ -20,7 +20,7 @@ export function MemberCard({ member, delay = 0 }: { member: Member; delay?: numb
       <div className="group relative overflow-hidden rounded-3xl glass">
         <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">
           {member.photoUrl ? (
-            <Image
+            <ResponsiveImage
               src={member.photoUrl}
               alt={member.name}
               fill

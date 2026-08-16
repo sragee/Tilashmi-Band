@@ -36,13 +36,14 @@ export function Hero({
             playsInline
           />
         ) : backgroundImageUrl ? (
-          <Image
+          <ResponsiveImage
             src={backgroundImageUrl}
             alt="TILASHMI band"
             fill
             sizes="100vw"
             priority
             className="object-cover"
+            // @ts-ignore style is applied to underlying <img> when external
             style={{ opacity: mediaOpacity }}
           />
         ) : (

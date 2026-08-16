@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { ArrowUpRight } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 
@@ -26,7 +26,7 @@ export function NewsCard({ post, delay = 0 }: { post: Post; delay?: number }) {
       <Link href={`/news/${post.slug}`} className="group block overflow-hidden rounded-3xl glass">
         <div className="relative aspect-[16/10] overflow-hidden bg-surface-2">
           {post.imageUrl ? (
-            <Image
+            <ResponsiveImage
               src={post.imageUrl}
               alt={post.title}
               fill

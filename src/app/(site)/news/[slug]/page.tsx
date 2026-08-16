@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { ArrowLeft } from "lucide-react";
 import { prisma } from "@/lib/prisma";
 import { AmbientGlow } from "@/components/ui/AmbientGlow";
@@ -52,16 +52,9 @@ export default async function NewsDetailPage({
 
       {post.imageUrl && (
         <div className="mx-auto max-w-4xl px-6 mb-12">
-          <div className="relative aspect-video overflow-hidden rounded-3xl bg-surface-2">
-            <Image
-              src={post.imageUrl}
-              alt={post.title}
-              fill
-              sizes="(max-width: 768px) 100vw, 768px"
-              priority
-              className="object-cover"
-            />
-          </div>
+            <div className="relative aspect-video overflow-hidden rounded-3xl bg-surface-2">
+              <ResponsiveImage src={post.imageUrl} alt={post.title} fill sizes="(max-width: 768px) 100vw, 768px" priority className="object-cover" />
+            </div>
         </div>
       )}
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { Play, Music } from "lucide-react";
 import { Reveal } from "@/components/ui/Reveal";
 import { SpotifyIcon, YoutubeIcon, AppleMusicIcon } from "@/components/ui/SocialIcons";
@@ -28,7 +28,7 @@ export function ReleaseCard({ release, delay = 0 }: { release: Release; delay?: 
       <div className="group relative overflow-hidden rounded-3xl glass">
         <div className="relative aspect-square overflow-hidden bg-surface-2">
           {release.coverImageUrl ? (
-            <Image
+            <ResponsiveImage
               src={release.coverImageUrl}
               alt={release.title}
               fill

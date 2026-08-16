@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function GroupPhoto({ imageUrl, caption }: { imageUrl?: string | null; caption?: string | null }) {
@@ -8,13 +8,7 @@ export function GroupPhoto({ imageUrl, caption }: { imageUrl?: string | null; ca
         <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-surface-2">
           {imageUrl ? (
             <>
-              <Image
-                src={imageUrl}
-                alt="TILASHMI band group photo"
-                fill
-                sizes="100vw"
-                className="object-cover"
-              />
+              <ResponsiveImage src={imageUrl} alt="TILASHMI band group photo" fill sizes="100vw" className="object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
             </>
           ) : (
