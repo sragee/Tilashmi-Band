@@ -61,8 +61,8 @@ export function ReleaseCard({ release, delay = 0 }: { release: Release; delay?: 
         </div>
         <div className="p-5">
           <p className="text-[11px] uppercase tracking-[0.25em] text-black/60">{release.type}</p>
-          <h3 className="mt-1 font-display text-lg text-black truncate">{release.title}</h3>
-          <p className="mt-1 text-xs text-muted">{dateLabel}</p>
+          <h3 className="mt-1 font-display text-base sm:text-lg text-black truncate">{release.title}</h3>
+          <p className="mt-1 text-xs sm:text-sm text-muted">{dateLabel}</p>
           <div className="mt-4 flex items-center gap-3">
             {release.spotifyUrl && (
               <a href={release.spotifyUrl} target="_blank" rel="noreferrer" className="text-black/60 hover:text-black" aria-label="Listen on Spotify">

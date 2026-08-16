@@ -41,11 +41,11 @@ export function NewsCard({ post, delay = 0 }: { post: Post; delay?: number }) {
         </div>
         <div className="p-6">
           <p className="text-xs text-muted">{dateLabel}</p>
-          <h3 className="mt-2 font-display text-xl text-black flex items-start justify-between gap-2">
+          <h3 className="mt-2 font-display text-lg sm:text-xl text-black flex items-start justify-between gap-2">
             {post.title}
             <ArrowUpRight size={18} className="mt-1 shrink-0 text-black/60 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-black" />
           </h3>
-          <p className="mt-2 text-sm text-muted leading-relaxed line-clamp-2">{excerpt}&hellip;</p>
+          <p className="mt-2 text-sm sm:text-base text-muted leading-relaxed line-clamp-2">{excerpt}&hellip;</p>
         </div>
       </Link>
     </Reveal>
