@@ -18,7 +18,7 @@ export function MemberCard({ member, delay = 0 }: { member: Member; delay?: numb
   return (
     <Reveal delay={delay}>
       <div className="group relative overflow-hidden rounded-3xl glass">
-        <div className="relative aspect-[4/5] overflow-hidden bg-surface-2">
+        <div className="relative aspect-4/5 overflow-hidden bg-surface-2">
           {member.photoUrl ? (
             <ResponsiveImage
               src={member.photoUrl}
@@ -34,7 +34,7 @@ export function MemberCard({ member, delay = 0 }: { member: Member; delay?: numb
               </span>
             </div>
           )}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/10 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6">
             <p className="text-xs uppercase tracking-[0.3em] text-accent mb-1">{member.role}</p>
             <h3 className="font-display text-2xl text-white">{member.name}</h3>

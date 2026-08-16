@@ -36,7 +36,7 @@ export function ReleaseCard({ release, delay = 0 }: { release: Release; delay?: 
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle,_#1a1a1a,_#000)]">
+            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle,#1a1a1a,#000)]">
               <Music className="text-white/15" size={48} />
             </div>
           )}

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import ResponsiveImage from "@/components/ui/ResponsiveImage";
 import { PlayCircle, CalendarCheck } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { AmbientGlow } from "@/components/ui/AmbientGlow";
@@ -23,7 +24,7 @@ export function Hero({
   const mediaOpacity = Math.min(100, Math.max(0, backgroundOpacity)) / 100;
 
   return (
-    <section className="relative flex min-h-[100svh] items-center justify-center overflow-hidden bg-background">
+    <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-background">
       <div className="absolute inset-0">
         {backgroundVideoUrl ? (
           <video
@@ -47,9 +48,9 @@ export function Hero({
             style={{ opacity: mediaOpacity }}
           />
         ) : (
-          <div className="h-full w-full bg-[radial-gradient(ellipse_at_center,_#f2f1ee_0%,_#ffffff_75%)]" />
+          <div className="h-full w-full bg-[radial-gradient(ellipse_at_center,#f2f1ee_0%,#ffffff_75%)]" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/40 to-background" />
+        <div className="absolute inset-0 bg-linear-to-b from-white/70 via-white/40 to-background" />
       </div>
 
       <AmbientGlow variant="hero" />
@@ -70,7 +71,7 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           aria-label={heading}
-          className="animate-float w-[78vw] max-w-[240px] sm:max-w-[420px] md:max-w-[560px] lg:max-w-[680px]"
+          className="animate-float w-[78vw] max-w-60 sm:max-w-105 md:max-w-140 lg:max-w-170"
         >
           <Image
             src="/logo.png"
@@ -113,7 +114,7 @@ export function Hero({
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
       >
         <span className="text-[10px] uppercase tracking-[0.3em] text-black/60">Scroll</span>
-        <span className="h-8 w-px bg-gradient-to-b from-black/40 to-transparent" />
+        <span className="h-8 w-px bg-linear-to-b from-black/40 to-transparent" />
       </motion.div>
     </section>
   );

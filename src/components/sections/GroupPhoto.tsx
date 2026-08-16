@@ -5,14 +5,14 @@ export function GroupPhoto({ imageUrl, caption }: { imageUrl?: string | null; ca
   return (
     <section className="relative">
       <Reveal>
-        <div className="relative w-full aspect-[16/9] md:aspect-[21/9] overflow-hidden bg-surface-2">
+        <div className="relative w-full aspect-video md:aspect-21/9 overflow-hidden bg-surface-2">
           {imageUrl ? (
             <>
               <ResponsiveImage src={imageUrl} alt="TILASHMI band group photo" fill sizes="100vw" className="object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/10 to-transparent" />
             </>
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(ellipse_at_center,_#f2f1ee_0%,_#ffffff_80%)]">
+            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(ellipse_at_center,#f2f1ee_0%,#ffffff_80%)]">
               <span className="font-display text-4xl md:text-6xl tracking-widest text-black/10">
                 TILASHMI
               </span>

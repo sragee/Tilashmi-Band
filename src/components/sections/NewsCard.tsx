@@ -24,7 +24,7 @@ export function NewsCard({ post, delay = 0 }: { post: Post; delay?: number }) {
   return (
     <Reveal delay={delay}>
       <Link href={`/news/${post.slug}`} className="group block overflow-hidden rounded-3xl glass">
-        <div className="relative aspect-[16/10] overflow-hidden bg-surface-2">
+        <div className="relative aspect-16/10 overflow-hidden bg-surface-2">
           {post.imageUrl ? (
             <ResponsiveImage
               src={post.imageUrl}
@@ -34,7 +34,7 @@ export function NewsCard({ post, delay = 0 }: { post: Post; delay?: number }) {
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           ) : (
-            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle,_#1a1a1a,_#000)]">
+            <div className="flex h-full w-full items-center justify-center bg-[radial-gradient(circle,#1a1a1a,#000)]">
               <span className="font-display text-3xl text-white/10">TILASHMI</span>
             </div>
           )}
