@@ -26,7 +26,7 @@ function getYoutubeVideoId(url?: string | null) {
 }
 
 export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: string | null }) {
-  const [muted, setMuted] = useState(true);
+  const [muted, setMuted] = useState(false);
   const videoId = useMemo(() => getYoutubeVideoId(backgroundMusicUrl), [backgroundMusicUrl]);
 
   const embedUrl = useMemo(
@@ -53,7 +53,7 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
         className="glass-strong flex items-center gap-2 rounded-full px-3.5 py-2.5 text-sm font-medium text-black shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:scale-[1.02]"
       >
         {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-        <span className="hidden sm:inline">{muted ? "Muted" : "Music on"}</span>
+        <span className="hidden sm:inline">{muted ? "Mute" : "Unmute"}</span>
       </button>
     </div>
   );
