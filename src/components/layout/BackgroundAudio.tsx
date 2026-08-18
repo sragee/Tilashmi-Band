@@ -48,9 +48,19 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
       );
     };
 
-    const timer = window.setTimeout(tryPlay, 1200);
+    const timer = window.setTimeout(tryPlay, 1500);
     return () => window.clearTimeout(timer);
   }, [embedUrl]);
+
+  const handleIframeLoad = () => {
+    const frame = iframeRef.current;
+    if (!frame || !frame.contentWindow) return;
+
+    frame.contentWindow.postMessage(
+      JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+      "*",
+    );
+  };
 
   return (
     <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2 sm:bottom-5 sm:right-5">
@@ -59,6 +69,7 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
           ref={iframeRef}
           src={embedUrl}
           title="Background track"
+          onLoad={handleIframeLoad}
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen={false}
         />
