@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 
 function getYoutubeVideoId(url?: string | null) {
@@ -27,6 +27,7 @@ function getYoutubeVideoId(url?: string | null) {
 
 export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: string | null }) {
   const [muted, setMuted] = useState(false);
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const videoId = useMemo(() => getYoutubeVideoId(backgroundMusicUrl), [backgroundMusicUrl]);
 
   const embedUrl = useMemo(
@@ -35,10 +36,27 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
     [muted, videoId],
   );
 
+  useEffect(() => {
+    const frame = iframeRef.current;
+    if (!frame) return;
+
+    const tryPlay = () => {
+      if (!frame.contentWindow) return;
+      frame.contentWindow.postMessage(
+        JSON.stringify({ event: "command", func: "playVideo", args: [] }),
+        "*",
+      );
+    };
+
+    const timer = window.setTimeout(tryPlay, 1200);
+    return () => window.clearTimeout(timer);
+  }, [embedUrl]);
+
   return (
-    <div className="fixed bottom-5 right-5 z-50 flex items-center gap-3">
+    <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2 sm:bottom-5 sm:right-5">
       <div className="pointer-events-none absolute -left-[9999px] -top-[9999px] h-0 w-0 overflow-hidden opacity-0">
         <iframe
+          ref={iframeRef}
           src={embedUrl}
           title="Background track"
           allow="autoplay; encrypted-media; picture-in-picture"
@@ -50,10 +68,10 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
         type="button"
         aria-label={muted ? "Unmute background music" : "Mute background music"}
         onClick={() => setMuted((value) => !value)}
-        className="glass-strong flex items-center gap-2 rounded-full px-3.5 py-2.5 text-sm font-medium text-black shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:scale-[1.02]"
+        className="glass-strong flex items-center justify-center gap-1.5 rounded-full px-2.5 py-2.5 text-black shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:gap-2 sm:px-3.5 sm:text-sm touch-manipulation"
       >
-        {muted ? <VolumeX size={18} /> : <Volume2 size={18} />}
-        <span className="hidden sm:inline">{muted ? "Mute" : "Unmute"}</span>
+        {muted ? <VolumeX size={16} className="sm:h-[18px] sm:w-[18px]" /> : <Volume2 size={16} className="sm:h-[18px] sm:w-[18px]" />}
+        <span className="hidden text-[11px] font-medium sm:inline sm:text-sm">{muted ? "Mute" : "Unmute"}</span>
       </button>
     </div>
   );
