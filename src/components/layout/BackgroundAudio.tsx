@@ -26,7 +26,7 @@ function getYoutubeVideoId(url?: string | null) {
 }
 
 export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: string | null }) {
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
   const videoId = useMemo(() => getYoutubeVideoId(backgroundMusicUrl), [backgroundMusicUrl]);
 
@@ -35,6 +35,11 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
       `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=${muted ? 1 : 0}&loop=1&playlist=${videoId}&controls=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1`,
     [muted, videoId],
   );
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => setMuted(false), 1500);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const frame = iframeRef.current;
