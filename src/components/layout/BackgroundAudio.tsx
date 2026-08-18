@@ -68,7 +68,7 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
   };
 
   return (
-    <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2 sm:bottom-5 sm:right-5">
+    <div className="fixed bottom-[max(0.75rem,calc(env(safe-area-inset-bottom)+0.75rem))] right-[max(0.75rem,calc(env(safe-area-inset-right)+0.75rem))] z-50 flex items-center gap-2">
       <div className="pointer-events-none absolute -left-[9999px] -top-[9999px] h-0 w-0 overflow-hidden opacity-0">
         <iframe
           ref={iframeRef}
@@ -84,7 +84,7 @@ export function BackgroundAudio({ backgroundMusicUrl }: { backgroundMusicUrl?: s
         type="button"
         aria-label={muted ? "Unmute background music" : "Mute background music"}
         onClick={() => setMuted((value) => !value)}
-        className="glass-strong flex items-center justify-center gap-1.5 rounded-full px-2.5 py-2.5 text-black shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:gap-2 sm:px-3.5 sm:text-sm touch-manipulation"
+        className="glass-strong flex h-11 w-11 items-center justify-center rounded-full text-black shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:scale-[1.02] active:scale-[0.98] sm:h-12 sm:w-auto sm:min-w-[128px] sm:gap-2 sm:px-3.5 sm:text-sm touch-manipulation"
       >
         {muted ? <VolumeX size={16} className="sm:h-[18px] sm:w-[18px]" /> : <Volume2 size={16} className="sm:h-[18px] sm:w-[18px]" />}
         <span className="hidden text-[11px] font-medium sm:inline sm:text-sm">{muted ? "Mute" : "Unmute"}</span>

@@ -48,8 +48,8 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
           : "bg-transparent pb-6 pt-[max(1.5rem,env(safe-area-inset-top))]"
       }`}
     >
-      <nav className="mx-auto max-w-7xl px-6 md:px-10 flex items-center justify-between">
-        <Logo logoUrl={logoUrl} size={scrolled ? 34 : 40} />
+      <nav className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 sm:px-6 md:px-10">
+        <Logo logoUrl={logoUrl} size={scrolled ? 30 : 36} />
 
         <ul className="hidden lg:flex items-center gap-9">
           {links.map((l) => (
@@ -78,7 +78,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
         <button
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
-          className="lg:hidden -mr-2 flex h-11 w-11 items-center justify-center text-black"
+          className="lg:hidden -mr-2 flex h-11 w-11 items-center justify-center rounded-full text-black transition-colors hover:bg-black/5"
           onClick={() => setOpen((v) => !v)}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -90,7 +90,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
           open ? "max-h-[80dvh] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
-        <ul className="flex flex-col overflow-y-auto px-6 py-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] gap-1 max-h-[80dvh]">
+        <ul className="flex max-h-[80dvh] flex-col gap-1 overflow-y-auto px-4 py-5 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           {links.map((l) => (
             <li key={l.href}>
               <Link
@@ -104,7 +104,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
             </li>
           ))}
           <li className="pt-5">
-            <Button href="/music" className="w-full">
+            <Button href="/music" className="w-full !rounded-2xl">
               Listen Now
             </Button>
           </li>

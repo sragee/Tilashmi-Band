@@ -56,7 +56,7 @@ export function Hero({
       <AmbientGlow variant="hero" />
       <Particles count={70} />
 
-      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 text-center">
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 text-center sm:px-6">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -96,12 +96,12 @@ export function Hero({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.65 }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+          className="mt-8 flex w-full max-w-sm flex-col items-stretch gap-3 sm:mt-10 sm:max-w-none sm:flex-row sm:items-center sm:justify-center"
         >
-          <Button href="/music" variant="primary">
+          <Button href="/music" variant="primary" className="w-full sm:w-auto">
             <PlayCircle size={18} /> Listen Now
           </Button>
-          <Button href="/contact" variant="secondary">
+          <Button href="/contact" variant="secondary" className="w-full sm:w-auto">
             <CalendarCheck size={18} /> Book the Band
           </Button>
         </motion.div>
