@@ -46,6 +46,15 @@ export default async function AdminSettingsPage() {
         </div>
 
         <div className="space-y-6 rounded-3xl glass p-8">
+          <p className="text-sm text-black/65 font-medium">Background Music</p>
+          <TextField
+            label="Music URL"
+            name="backgroundMusicUrl"
+            defaultValue={settings.backgroundMusicUrl || "https://youtu.be/civuoU_NE38?list=RDcivuoU_NE38"}
+          />
+        </div>
+
+        <div className="space-y-6 rounded-3xl glass p-8">
           <p className="text-sm text-black/65 font-medium">Footer</p>
           <TextField label="Footer Text" name="footerText" defaultValue={settings.footerText} />
         </div>

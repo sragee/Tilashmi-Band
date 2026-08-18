@@ -22,6 +22,7 @@ export async function updateSettings(formData: FormData) {
     contactPhone: String(formData.get("contactPhone") || ""),
     contactWhatsapp: String(formData.get("contactWhatsapp") || ""),
     footerText: String(formData.get("footerText") || "TILASHMI © All Rights Reserved."),
+    backgroundMusicUrl: String(formData.get("backgroundMusicUrl") || "https://youtu.be/civuoU_NE38?list=RDcivuoU_NE38") || null,
   };
 
   await prisma.siteSettings.upsert({

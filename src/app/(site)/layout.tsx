@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { PageTransition } from "@/components/layout/PageTransition";
+import { BackgroundAudio } from "@/components/layout/BackgroundAudio";
 
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
@@ -52,6 +53,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
           tiktokUrl: settings.tiktokUrl,
         }}
       />
+      <BackgroundAudio backgroundMusicUrl={settings.backgroundMusicUrl} />
       <ScrollToTop />
     </>
   );

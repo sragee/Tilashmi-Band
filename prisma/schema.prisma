@@ -31,6 +31,7 @@ model SiteSettings {
   contactPhone   String   @default("+977 9804053754")
   contactWhatsapp String  @default("+977 9804053754")
   footerText     String   @default("TILASHMI © All Rights Reserved.")
+  backgroundMusicUrl String? @default("https://youtu.be/civuoU_NE38?list=RDcivuoU_NE38")
   updatedAt      DateTime @updatedAt
 }
 
