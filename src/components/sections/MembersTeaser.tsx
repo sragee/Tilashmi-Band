@@ -9,7 +9,7 @@ export function MembersTeaser({ members }: { members: Member[] }) {
   return (
     <Section className="bg-surface/40">
       <SectionHeading eyebrow="The Collective" title="Meet the Band" align="center" />
-      <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-10 grid gap-4 sm:mt-14 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {members.slice(0, 4).map((m, i) => (
           <MemberCard key={m.id} member={m} delay={i * 0.08} />
         ))}

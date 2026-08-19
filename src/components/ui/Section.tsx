@@ -12,7 +12,7 @@ export function Section({
 }) {
   return (
     <section id={id} className={clsx("section-pad relative", className)}>
-      <div className="mx-auto max-w-7xl px-6 md:px-10">{children}</div>
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-10">{children}</div>
     </section>
   );
 }
@@ -39,7 +39,7 @@ export function SectionHeading({
   return (
     <div className={clsx("max-w-2xl", align === "center" && "mx-auto text-center")}>
       {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-medium text-gradient">
+      <h2 className="text-[clamp(2rem,8vw,3rem)] font-display font-medium leading-[1.05] text-gradient">
         {title}
       </h2>
       {description && (

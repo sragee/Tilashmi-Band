@@ -24,7 +24,7 @@ export function Hero({
   const mediaOpacity = Math.min(100, Math.max(0, backgroundOpacity)) / 100;
 
   return (
-    <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-background">
+    <section className="relative flex min-h-svh items-center justify-center overflow-hidden bg-background px-4 py-28 sm:px-6 sm:py-32">
       <div className="absolute inset-0">
         {backgroundVideoUrl ? (
           <video
@@ -43,7 +43,7 @@ export function Hero({
             fill
             sizes="100vw"
             priority
-            className="object-cover"
+            className="object-cover object-center sm:object-center"
             // @ts-ignore style is applied to underlying <img> when external
             style={{ opacity: mediaOpacity }}
           />
@@ -56,12 +56,12 @@ export function Hero({
       <AmbientGlow variant="hero" />
       <Particles count={70} />
 
-      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 text-center sm:px-6">
+      <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center text-center">
         <motion.p
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="mb-6 text-xs uppercase tracking-[0.5em] text-accent/90"
+          className="mb-5 max-w-full text-[10px] uppercase tracking-[0.32em] text-accent/90 sm:mb-6 sm:text-xs sm:tracking-[0.5em]"
         >
           Alternative Rock &middot; Pop &middot; Fusion Rock
         </motion.p>
@@ -71,7 +71,7 @@ export function Hero({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           aria-label={heading}
-          className="animate-float w-[78vw] max-w-60 sm:max-w-105 md:max-w-140 lg:max-w-170"
+          className="animate-float w-[min(82vw,20rem)] sm:w-[min(78vw,26rem)] md:w-[35rem] lg:w-[42rem]"
         >
           <Image
             src="/logo.png"
@@ -87,7 +87,7 @@ export function Hero({
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="mt-6 max-w-xl text-base sm:text-lg text-black/60 font-light"
+          className="mt-5 max-w-xl text-[clamp(1rem,4.5vw,1.125rem)] leading-relaxed text-black/60 font-light sm:mt-6"
         >
           {subtitle}
         </motion.p>

@@ -10,7 +10,7 @@ export function EventsTeaser({ events }: { events: Event[] }) {
 
   return (
     <Section className="bg-surface/40">
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
+      <div className="mb-10 flex flex-col gap-5 sm:mb-14 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
         <SectionHeading eyebrow="Live" title="Upcoming Shows" />
         <Button href="/events" variant="ghost">
           All Events
