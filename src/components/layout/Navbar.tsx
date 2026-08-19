@@ -86,7 +86,7 @@ export function Navbar({ logoUrl }: { logoUrl?: string | null }) {
       </nav>
 
       <div
-        className={`lg:hidden fixed inset-x-0 top-[100%] origin-top overflow-hidden transition-all duration-400 ease-out glass-strong ${
+        className={`lg:hidden absolute inset-x-0 top-full origin-top overflow-hidden transition-all duration-400 ease-out glass-strong ${
           open ? "max-h-[80dvh] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
