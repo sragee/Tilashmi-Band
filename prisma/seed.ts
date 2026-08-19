@@ -28,7 +28,10 @@ async function main() {
 
   await prisma.aboutContent.upsert({
     where: { id: "singleton" },
-    update: {},
+    update: {
+      journey:
+        "What began as late-night jam sessions among friends in Itahari grew into a movement — a sound that blends Nepali roots with global alternative and pop influences.",
+    },
     create: {
       id: "singleton",
       intro:
@@ -38,7 +41,7 @@ async function main() {
       passion:
         "Every member of TILASHMI brings a different fire: raw guitar energy, soulful vocals, driving rhythm, and melodies that linger long after the last note fades.",
       journey:
-        "What began as late-night jam sessions among friends in Kathmandu grew into a movement — a sound that blends Nepali roots with global alternative and pop influences.",
+        "What began as late-night jam sessions among friends in Itahari grew into a movement — a sound that blends Nepali roots with global alternative and pop influences.",
       meaning:
         "Tilashmi represents god-gifted divine power, spiritual energy, brightness, light, positivity, hope, and inner strength — the invisible force behind every song we write.",
       positiveMessage:
@@ -56,12 +59,17 @@ async function main() {
   if (timelineCount === 0) {
     await prisma.timelineEvent.createMany({
       data: [
-        { year: "2081 B.S.", title: "The Spark", description: "TILASHMI is formed in Kathmandu by a group of friends chasing one sound.", order: 1 },
+        { year: "2081 B.S.", title: "The Spark", description: "TILASHMI is formed in Itahari by a group of friends chasing one sound.", order: 1 },
         { year: "2024", title: "First Rehearsal", description: "The band's first jam session becomes the seed of their signature fusion sound.", order: 2 },
         { year: "2024", title: "Debut Single", description: "TILASHMI releases its first single, introducing their alternative-rock-meets-pop identity.", order: 3 },
         { year: "2025", title: "First Live Show", description: "TILASHMI takes the stage for the first time, igniting a growing fanbase.", order: 4 },
         { year: "2026", title: "Rising Momentum", description: "New music, new stages, and a growing community bound by positive energy.", order: 5 },
       ],
+    });
+  } else {
+    await prisma.timelineEvent.updateMany({
+      where: { title: "The Spark" },
+      data: { description: "TILASHMI is formed in Itahari by a group of friends chasing one sound." },
     });
   }
 
